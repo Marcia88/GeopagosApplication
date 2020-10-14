@@ -13,4 +13,6 @@
     <string name="amount_title">Your amount</string>
     <string name="bank_title">Your bank</string>
     <string name="payment_title">Your payment Method</string>
+    <string name="retry">Retry</string>
+    <string name="error_message">You do not have Internet connection</string>
 </resources>

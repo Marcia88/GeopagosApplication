@@ -34,6 +34,7 @@ class PaymentMethodsFragment : Fragment(), PaymentMethodAdapter.OnPaymentMethodS
             false
         )
         binding.lifecycleOwner = this
+        binding.viewmodel = paymentMethodViewModel
         return binding.root
     }
 
@@ -62,13 +63,25 @@ class PaymentMethodsFragment : Fragment(), PaymentMethodAdapter.OnPaymentMethodS
                 Status.LOADING -> {
                     binding.progressBar.visibility = View.VISIBLE
                     binding.recyclerView.visibility = View.GONE
+                    hideNetworkError()
                 }
                 Status.ERROR -> {
                     binding.progressBar.visibility = View.GONE
                     Toast.makeText(context, it.message, Toast.LENGTH_LONG).show()
+                    showNetworkError()
                 }
             }
         })
+    }
+
+    private fun showNetworkError() {
+        binding.error.visibility = View.VISIBLE
+        binding.retry.visibility = View.VISIBLE
+    }
+
+    private fun hideNetworkError() {
+        binding.error.visibility = View.GONE
+        binding.retry.visibility = View.GONE
     }
 
     private fun setupRecyclerView() {

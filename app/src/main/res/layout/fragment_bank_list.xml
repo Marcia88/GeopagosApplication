@@ -3,6 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.android.geopagosapplication.ui.bank.viewmodel.BankViewModel" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -10,11 +17,11 @@
 
         <TextView
             android:id="@+id/title"
+            style="@style/GeopagosTitleStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/text_margin"
             android:gravity="center"
-            style="@style/GeopagosTitleStyle"
             android:text="@string/bank_title"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -37,6 +44,32 @@
             android:id="@+id/progressBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/error"
+            style="@style/GeopagosFieldStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/text_margin"
+            android:gravity="center"
+            android:text="@string/error_message"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/retry"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/retry"
+            style="@style/GeopagosButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> viewModel.fetchCardIssues()}"
+            android:text="@string/retry"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

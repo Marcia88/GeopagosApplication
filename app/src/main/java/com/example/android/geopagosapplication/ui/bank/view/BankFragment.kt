@@ -32,10 +32,12 @@ class BankFragment : Fragment(), CardIssuesAdapter.OnCardIssueSelected {
                 Status.LOADING -> {
                     binding.progressBar.visibility = View.VISIBLE
                     binding.recyclerView.visibility = View.GONE
+                    hideNetworkError()
                 }
                 Status.ERROR -> {
                     binding.progressBar.visibility = View.GONE
                     Toast.makeText(context, it.message, Toast.LENGTH_LONG).show()
+                    showNetworkError()
                 }
             }
         })
@@ -67,6 +69,7 @@ class BankFragment : Fragment(), CardIssuesAdapter.OnCardIssueSelected {
             false
         )
         binding.lifecycleOwner = this
+        binding.viewModel = bankViewModel
         return binding.root
     }
 
@@ -80,5 +83,15 @@ class BankFragment : Fragment(), CardIssuesAdapter.OnCardIssueSelected {
     override fun onClick(cardIssue: CardIssue) {
         bankViewModel.onCardIssueSelected(cardIssue)
         findNavController().navigate(R.id.action_bankFragment_to_installmentFragment)
+    }
+
+    private fun hideNetworkError() {
+        binding.error.visibility = View.GONE
+        binding.retry.visibility = View.GONE
+    }
+
+    private fun showNetworkError() {
+        binding.error.visibility = View.VISIBLE
+        binding.retry.visibility = View.VISIBLE
     }
 }

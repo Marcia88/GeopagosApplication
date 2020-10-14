@@ -12,8 +12,8 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.installment.view.InstallmentFragment"
-        android:background="@color/background">
+        android:background="@color/background"
+        tools:context=".ui.installment.view.InstallmentFragment">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -22,11 +22,11 @@
             android:orientation="vertical">
 
             <TextView
+                style="@style/GeopagosTitleStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/text_margin"
                 android:gravity="center"
-                style="@style/GeopagosTitleStyle"
                 android:text="@string/your_order" />
 
             <LinearLayout
@@ -36,15 +36,15 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    style="@style/GeopagosFieldStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    style="@style/GeopagosFieldStyle"
                     android:text="@string/your_amount" />
 
                 <TextView
+                    style="@style/GeopagosValueStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    style="@style/GeopagosValueStyle"
                     android:text="@{viewmodel.amount}" />
             </LinearLayout>
 
@@ -55,15 +55,15 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    style="@style/GeopagosFieldStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    style="@style/GeopagosFieldStyle"
                     android:text="@string/payment" />
 
                 <TextView
+                    style="@style/GeopagosValueStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    style="@style/GeopagosValueStyle"
                     android:text="@{viewmodel.paymentMethod}" />
             </LinearLayout>
 
@@ -74,24 +74,24 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    style="@style/GeopagosFieldStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    style="@style/GeopagosFieldStyle"
                     android:text="@string/card_issue" />
 
                 <TextView
+                    style="@style/GeopagosValueStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    style="@style/GeopagosValueStyle"
                     android:text="@{viewmodel.cardIssue}" />
             </LinearLayout>
 
             <Button
+                style="@style/GeopagosButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
                 android:onClick="@{() -> viewmodel.pay()}"
-                style="@style/GeopagosButtonStyle"
                 android:text="@string/pay" />
         </LinearLayout>
 

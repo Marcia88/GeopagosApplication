@@ -32,7 +32,13 @@ class PaymentMethodViewModel(
             if (networkHelper.isNetworkConnected()) {
                 paymentMethodRepository.getPaymentMethods().let {
                     if (it.isSuccessful) {
-                        _paymentMethods.postValue(Resource.success(paymentMethodRepository.mapPaymentMethods(it)))
+                        _paymentMethods.postValue(
+                            Resource.success(
+                                paymentMethodRepository.mapPaymentMethods(
+                                    it
+                                )
+                            )
+                        )
                     } else {
                         _paymentMethods.postValue(Resource.error(it.errorBody().toString(), null))
                     }
@@ -45,5 +51,9 @@ class PaymentMethodViewModel(
 
     fun paymentMethodSelected(paymentMethod: PaymentMethod) {
         payment.paymentMethod = paymentMethod
+    }
+
+    fun retry() {
+        fetchPaymentMethods()
     }
 }
