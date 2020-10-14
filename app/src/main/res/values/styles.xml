@@ -1,0 +1,32 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="GeopagosButtonStyle" parent="Widget.AppCompat.Button">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:background">@drawable/selector_rounded_btn</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">@dimen/subtitle_text_size</item>
+    </style>
+
+    <style name="GeopagosTitleStyle" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">@dimen/title_text_size</item>
+        <item name="android:fontFamily">sans-serif-black</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+    </style>
+
+    <style name="GeopagosFieldStyle" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">@dimen/subtitle_text_size</item>
+        <item name="android:fontFamily">sans-serif-black</item>
+    </style>
+
+    <style name="GeopagosValueStyle" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">@dimen/subtitle_text_size</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+</resources>

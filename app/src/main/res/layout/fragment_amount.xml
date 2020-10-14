@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.example.android.geopagosapplication.utils.Converter" />
+
+        <variable
+            name="viewModel"
+            type="com.example.android.geopagosapplication.ui.amount.viewmodel.AmountViewModel" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background"
+        tools:context=".ui.amount.view.AmountFragment">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/text_margin"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/GeopagosTitleStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/text_margin"
+                android:gravity="center"
+                android:text="@string/amount_title" />
+
+            <TextView
+                style="@style/GeopagosFieldStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/text_margin"
+                android:text="@string/enter_amount" />
+
+            <EditText
+                android:id="@+id/amount"
+                amount="@={Converter.stringToCurrencyFormat(viewModel.amount)}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/text_margin"
+                android:hint="@string/amount"
+                android:inputType="numberDecimal" />
+
+            <TextView
+                android:id="@+id/error"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/amount_error"
+                android:layout_marginBottom="@dimen/text_margin"
+                android:visibility="invisible" />
+
+            <Button
+                android:id="@+id/button"
+                style="@style/GeopagosButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:onClick="@{() -> viewModel.next()}"
+                android:text="@string/next" />
+        </LinearLayout>
+    </FrameLayout>
+</layout>

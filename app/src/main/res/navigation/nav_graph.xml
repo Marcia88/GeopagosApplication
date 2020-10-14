@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/amountFragment">
+    <fragment
+        android:id="@+id/amountFragment"
+        android:name="com.example.android.geopagosapplication.ui.amount.view.AmountFragment"
+        android:label="fragment_amount"
+        tools:layout="@layout/fragment_amount" >
+        <action
+            android:id="@+id/action_amountFragment_to_paymentMethodFragment2"
+            app:destination="@id/paymentMethodFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/paymentMethodFragment"
+        android:name="com.example.android.geopagosapplication.ui.paymentmethod.view.PaymentMethodsFragment"
+        android:label="main_fragment"
+        tools:layout="@layout/payment_methods_fragment" >
+        <action
+            android:id="@+id/action_paymentMethodFragment_to_bankFragment"
+            app:destination="@id/bankFragment" />
+        <action
+            android:id="@+id/action_paymentMethodFragment_to_amountFragment"
+            app:destination="@id/amountFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/bankFragment"
+        android:name="com.example.android.geopagosapplication.ui.bank.view.BankFragment"
+        android:label="fragment_bank_list"
+        tools:layout="@layout/fragment_bank_list" >
+        <action
+            android:id="@+id/action_bankFragment_to_installmentFragment"
+            app:destination="@id/installmentFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/installmentFragment"
+        android:name="com.example.android.geopagosapplication.ui.installment.view.InstallmentFragment"
+        android:label="fragment_installment"
+        tools:layout="@layout/fragment_installment" >
+        <action
+            android:id="@+id/action_installmentFragment_to_successFragment"
+            app:destination="@id/successFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/successFragment"
+        android:name="com.example.android.geopagosapplication.ui.success.view.SuccessFragment"
+        android:label="fragment_success"
+        tools:layout="@layout/fragment_success" >
+        <action
+            android:id="@+id/action_successFragment_to_amountFragment"
+            app:destination="@id/amountFragment" />
+    </fragment>
+</navigation>
